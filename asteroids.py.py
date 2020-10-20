@@ -23,7 +23,7 @@ def space_ship(x,y):
 Running =  True
 
 while Running:
-
+   screen.fill((0,0,0))
    for event in pygame.event.get():
        if event.type==pygame.QUIT:
            Running= False
