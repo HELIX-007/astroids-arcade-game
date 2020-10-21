@@ -1,4 +1,4 @@
-import pygame
+ import pygame
 import random,math
 pygame.init()
 screen=pygame.display.set_mode((800, 600))
@@ -17,7 +17,7 @@ angle=0
 
 #asteroids
 asteroid1=pygame.image.load('asteroid1.png')
-asteroid1x=random.randint(0,800)
+asteroid1x=random.randint(0,730)
 asteroid1y=random.randint(50,100)
 asteroid1x_change=1
 asteroid1y_change=1
@@ -56,7 +56,7 @@ def fireBullet(x,y):
    screen.blit(bullet,(x+18,y+40))
 def iscollision(asteroid1x,asteroid1y,bulletx,bullety):
    distance=math.sqrt(math.pow((asteroid1x-bulletx),2)+math.pow((asteroid1y-bullety),2))
-   if distance <20:
+   if distance <5:
       True
    else:
          False
@@ -69,8 +69,7 @@ while Running:
 
    screen.fill((0,0,0))
    screen.blit(bg,[0,0])
-   angle+=1
-   spaceship_rotated,spaceship_rotated_rect=rotate(spaceship,angle)                                             
+                                               
 
    for event in pygame.event.get():
         if event.type==pygame.QUIT:
@@ -88,8 +87,7 @@ while Running:
              spaceshipy_change=-1.5
           if event.key==pygame.K_DOWN:
              spaceshipy_change=1.5
-          if event.key==pygame.K_a:
-             rotate(spaceship,45)
+           
           if event.key==pygame.K_SPACE:
              if bullet_state=='ready':
                  bullety=spaceshipy-20
@@ -101,8 +99,7 @@ while Running:
                  spaceshipx_change=0
               if event.key==pygame.K_UP or  event.key==pygame.K_DOWN:
                    spaceshipy_change=0
-              if event.key==pygame.K_a:
-                  rotate(spaceship,45)
+              
  
    spaceshipy+=spaceshipy_change       
    spaceshipx+=spaceshipx_change
@@ -148,9 +145,10 @@ while Running:
              bullet_state='ready'
              score+=5
              print(score)
-       asteroid1x=random.randint(0,800)
-       asteroid1y=random.randint(50,100)
-             
+        
+       asteroid1x=random.randint(0,730)
+       asteroid1y=random.randint(50,100)     
+
    asteroid_1( asteroid1x,asteroid1y)
    space_ship(spaceshipx,spaceshipy)
    pygame.display.update()
