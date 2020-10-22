@@ -1,2 +1,2 @@
 # astroids-arcade-game
-creating the astroids 
+creating the astroids game
